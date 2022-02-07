@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updatePosts();
 })
 function updatePosts() {
-    fetch('http://localhost:3000/api/all').then(res => {
+    fetch('https://api-mural.herokuapp.com/all').then(res => {
         return res.json();
     }).then(json => {
         let postElements = '';
@@ -34,7 +34,7 @@ function newPost() {
         headers: new Headers({ 'content-type': 'application/json' }),
         body: JSON.stringify(post)
     }
-    fetch("http://localhost:3000/api/new", options).then(res => {
+    fetch("https://api-mural.herokuapp.com/new", options).then(res => {
         console.log(res);
         updatePosts();
         document.getElementById("title").value = ''
